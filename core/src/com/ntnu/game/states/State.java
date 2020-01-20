@@ -4,13 +4,11 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public abstract class State {
 
-    GameStateManager gsm;
+    private GameStateManager gsm;
 
     protected State(GameStateManager gsm) {
         this.gsm = gsm;
     }
-
-    protected abstract void handleInput();
 
     public abstract void update(float dt);
 

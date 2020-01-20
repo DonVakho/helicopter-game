@@ -9,7 +9,11 @@ import java.util.Random;
 
 public class Helicopter {
 
-    private static final int SPEED = 10;
+    private static final int RIGHT_WALL = HelicopterGame.SCREEN_WIDTH - HelicopterGame.HELICOPTER_WIDTH;
+
+    private static final float UP_WALL = HelicopterGame.SCREEN_HEIGHT - HelicopterGame.HELICOPTER_HEIGHT;
+
+    private static final int SPEED = 12;
 
     private int moveX;
 
@@ -25,20 +29,22 @@ public class Helicopter {
         rand = new Random();
         position = new Vector3(x, y, 0);
         helicopter = new Sprite(new Texture("helicopters/heli_1.png"));
-        helicopter.flip(true, false);
         moveX = getRandomSpeed(true);
+        if (moveX > 0) {
+            helicopter.flip(true, false);
+        }
         moveY = getRandomSpeed(true);
     }
 
     public void update() {
         if (position.x <= 0) {
             switchX();
-        } else if (position.x >= (HelicopterGame.SCREEN_WIDTH - HelicopterGame.HELICOPTER_WIDTH)) {
+        } else if (position.x >= RIGHT_WALL) {
             switchX();
         }
         if (position.y <= 0) {
             switchY();
-        } else if (position.y >= (HelicopterGame.SCREEN_HEIGHT - HelicopterGame.HELICOPTER_HEIGHT)) {
+        } else if (position.y >= UP_WALL) {
             switchY();
         }
         position.add(moveX, moveY, 0);
@@ -65,12 +71,11 @@ public class Helicopter {
     private int getRandomSpeed(boolean nonZero) {
         int speed = rand.nextInt(SPEED) - SPEED / 2;
         if (nonZero && speed == 0) {
-            getRandomSpeed(nonZero);
+            getRandomSpeed(true);
         }
         return speed;
     }
 
-    public void dispose(){
-
+    public void dispose() {
     }
 }

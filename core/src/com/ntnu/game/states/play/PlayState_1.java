@@ -16,12 +16,7 @@ public class PlayState_1 extends State {
     }
 
     @Override
-    protected void handleInput() {
-    }
-
-    @Override
     public void update(float dt) {
-        handleInput();
         helicopter.update();
     }
 
