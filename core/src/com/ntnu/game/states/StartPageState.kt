@@ -36,14 +36,13 @@ class StartPageState(gsm: GameStateManager) : IState {
         stage.addActor(playBtn)
     }
 
-    override fun update(dt: Float) {}
-
     override fun render(sb: SpriteBatch) {
         stage.act()
         stage.draw()
     }
 
-    override fun dispose() {
+    override fun update(dt: Float) {}
 
+    override fun dispose() {
     }
 }

@@ -12,7 +12,11 @@ class GameStateManager {
         states.push(state)
     }
 
-    internal fun set(state: IState) {
+    fun pop() {
+        states.pop()
+    }
+
+    fun set(state: IState) {
         states.pop().dispose()
         states.push(state)
     }

@@ -9,7 +9,7 @@ import com.ntnu.game.states.StartPageState
 
 class HelicopterGame : ApplicationAdapter() {
 
-    private var gsm: GameStateManager = GameStateManager()
+    private val gsm: GameStateManager = GameStateManager()
 
     private var batch: SpriteBatch? = null
 

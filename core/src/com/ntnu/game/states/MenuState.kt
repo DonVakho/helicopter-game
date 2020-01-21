@@ -51,12 +51,12 @@ class MenuState internal constructor(gsm: GameStateManager) : IState {
         stage.addActor(task4)
     }
 
-    override fun update(dt: Float) {}
-
     override fun render(sb: SpriteBatch) {
         stage.act()
         stage.draw()
     }
+
+    override fun update(dt: Float) {}
 
     override fun dispose() {}
 

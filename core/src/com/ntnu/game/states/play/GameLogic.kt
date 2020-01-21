@@ -1,5 +1,6 @@
 package com.ntnu.game.states.play
 
+import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.ntnu.game.sprites.Helicopter
 import com.ntnu.game.HelicopterGame
 
@@ -7,27 +8,35 @@ import com.ntnu.game.HelicopterGame
 
 class GameLogic {
 
-    private val RIGHT_WALL = HelicopterGame.SCREEN_WIDTH - HelicopterGame.HELICOPTER_WIDTH
+    private val rightWall = HelicopterGame.SCREEN_WIDTH - HelicopterGame.HELICOPTER_WIDTH
 
-    private val UP_WALL = HelicopterGame.SCREEN_HEIGHT - HelicopterGame.HELICOPTER_HEIGHT
+    private val upperWall = HelicopterGame.SCREEN_HEIGHT - HelicopterGame.HELICOPTER_HEIGHT
 
-    private val SPEED = 12
+    val helicopters = ArrayList<Helicopter>()
 
-    var gameObjects = ArrayList<Helicopter>()
+    private val controller: Controller = Controller()
 
     fun update(){
-        for(o: Helicopter in gameObjects){
-            if (o.position.x <= 0) {
-                o.switchX()
-            } else if (o.position.x >= RIGHT_WALL) {
-                o.switchX()
+        for(h: Helicopter in helicopters){
+            if (h.position.x <= 0) {
+                h.switchX()
+            } else if (h.position.x >= rightWall) {
+                h.switchX()
             }
-            if (o.position.y <= 0) {
-                o.switchY()
-            } else if (o.position.y >= UP_WALL) {
-                o.switchY()
+            if (h.position.y <= 0) {
+                h.switchY()
+            } else if (h.position.y >= upperWall) {
+                h.switchY()
             }
-            o.update()
+            h.movement = controller.delta
+            h.update()
         }
+    }
+
+    fun render(sb: SpriteBatch){
+        for(h: Helicopter in helicopters){
+            h.render(sb)
+        }
+        controller.render()
     }
 }
