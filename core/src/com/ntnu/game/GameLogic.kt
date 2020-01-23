@@ -16,6 +16,25 @@ class GameLogic(private val controller: Controller? = null) {
 
     fun update(dt: Float){
         for(h:Helicopter in helicopters){
+
+            for(h2:Helicopter in helicopters) {
+                if (h.position.x + HelicopterGame.HELICOPTER_WIDTH + h.movement.x > h2.position.x &&
+                        h.position.x + h.movement.x < h2.position.x + HelicopterGame.HELICOPTER_WIDTH &&
+                        h.position.y + HelicopterGame.HELICOPTER_HEIGHT > h2.position.y &&
+                        h.position.y < h2.position.y + HelicopterGame.HELICOPTER_HEIGHT) {
+                    h.switchX()
+                    h2.switchX()
+                }
+
+                if (h.position.x + HelicopterGame.HELICOPTER_WIDTH > h2.position.x &&
+                        h.position.x < h2.position.x + HelicopterGame.HELICOPTER_WIDTH &&
+                        h.position.y + HelicopterGame.HELICOPTER_HEIGHT + h.movement.y > h2.position.y &&
+                        h.position.y + h.movement.y < h2.position.y + HelicopterGame.HELICOPTER_HEIGHT) {
+                    h.switchY()
+                    h2.switchY()
+                }
+            }
+
             val predictedPos = Vector2(h.position.x + h.movement.x, h.position.y + h.movement.y)
 
             if(predictedPos.x < 0){
@@ -34,6 +53,7 @@ class GameLogic(private val controller: Controller? = null) {
                 predictedPos.y = upperWall - (predictedPos.y + HelicopterGame.HELICOPTER_HEIGHT - HelicopterGame.SCREEN_HEIGHT)
                 h.switchY()
             }
+
             if (controller != null){
                 h.movement = controller.getDelta()
                 h.position = predictedPos
@@ -49,5 +69,9 @@ class GameLogic(private val controller: Controller? = null) {
             h.render(sb)
         }
         controller?.render()
+    }
+
+    fun collideHelicopters(h1: Helicopter, h2: Helicopter){
+        //
     }
 }
