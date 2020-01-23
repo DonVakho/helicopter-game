@@ -40,8 +40,8 @@ class Controller {
         touchPad.addListener(object : DragListener() {
             override fun drag(event: InputEvent?, x: Float, y: Float, pointer: Int) {
                 super.drag(event, x, y, pointer)
-                delta.x = touchPad.knobPercentX * 2
-                delta.y = touchPad.knobPercentY * 2
+                delta.x = touchPad.knobPercentX * 3
+                delta.y = touchPad.knobPercentY * 3
             }
         })
 
