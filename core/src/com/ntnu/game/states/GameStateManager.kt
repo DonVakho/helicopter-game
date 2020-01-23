@@ -13,7 +13,7 @@ class GameStateManager {
     }
 
     fun pop() {
-        states.pop()
+        states.pop().dispose()
     }
 
     fun set(state: IState) {

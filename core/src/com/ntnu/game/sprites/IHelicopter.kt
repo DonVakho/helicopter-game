@@ -4,13 +4,11 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch
 
 interface IHelicopter {
 
-    fun update()
+    fun update(dt: Float)
 
     fun render(sb: SpriteBatch)
 
     fun switchX()
 
     fun switchY()
-
-    fun dispose()
 }

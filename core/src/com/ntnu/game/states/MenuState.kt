@@ -10,6 +10,8 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener
 import com.badlogic.gdx.utils.viewport.ScreenViewport
 import com.ntnu.game.HelicopterGame
 import com.ntnu.game.states.play.PlayState1
+import com.ntnu.game.states.play.PlayState2
+import com.ntnu.game.states.play.PlayState3
 
 class MenuState internal constructor(gsm: GameStateManager) : IState {
 
@@ -32,11 +34,15 @@ class MenuState internal constructor(gsm: GameStateManager) : IState {
         })
         val task3 = createTxtButton("Task 3", skin, task4.y + btnSpace)
         task3.addListener(object : ClickListener() {
-            override fun clicked(event: InputEvent?, x: Float, y: Float) {}
+            override fun clicked(event: InputEvent?, x: Float, y: Float) {
+                gsm.set(PlayState3())
+            }
         })
         val task2 = createTxtButton("Task 2", skin, task3.y + btnSpace)
         task2.addListener(object : ClickListener() {
-            override fun clicked(event: InputEvent?, x: Float, y: Float) {}
+            override fun clicked(event: InputEvent?, x: Float, y: Float) {
+                gsm.set(PlayState2())
+            }
         })
         val task1 = createTxtButton("Task 1", skin, task2.y + btnSpace)
         task1.addListener(object : ClickListener() {
