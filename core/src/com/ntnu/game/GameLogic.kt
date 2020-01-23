@@ -70,8 +70,4 @@ class GameLogic(private val controller: Controller? = null) {
         }
         controller?.render()
     }
-
-    fun collideHelicopters(h1: Helicopter, h2: Helicopter){
-        //
-    }
 }
