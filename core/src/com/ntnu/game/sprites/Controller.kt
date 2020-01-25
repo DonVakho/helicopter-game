@@ -11,9 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent
 import com.badlogic.gdx.scenes.scene2d.utils.*
 import com.ntnu.game.HelicopterGame
 
-class Controller {
-
-    private val stage: Stage = Stage(ScreenViewport())
+class Controller(val stage: Stage) {
 
     private var delta: Vector2 = Vector2(0f, 0f)
 

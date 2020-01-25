@@ -5,16 +5,19 @@ import com.badlogic.gdx.math.Vector2
 import com.ntnu.game.GameLogic
 import com.ntnu.game.sprites.Helicopter
 import com.ntnu.game.sprites.Controller
+import com.ntnu.game.states.BaseState
+import com.ntnu.game.states.GameStateManager
 import com.ntnu.game.states.IState
 
-class PlayState2: IState {
+class PlayState2(gsm: GameStateManager): BaseState(gsm) {
 
     private val helicopter: Helicopter = Helicopter(Vector2(2f, 3f), Vector2(5f, 5f))
 
-    private val logic: GameLogic = GameLogic(Controller())
+    private val logic: GameLogic = GameLogic(Controller(stage))
 
     init {
         logic.helicopters.add(helicopter)
+        createBackButton()
     }
 
     override fun update(dt: Float) {
@@ -22,6 +25,7 @@ class PlayState2: IState {
     }
 
     override fun render(sb: SpriteBatch) {
+        super.render(sb)
         logic.render(sb)
     }
 

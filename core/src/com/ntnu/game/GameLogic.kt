@@ -4,6 +4,13 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.math.Vector2
 import com.ntnu.game.sprites.Helicopter
 import com.ntnu.game.sprites.Controller
+import com.badlogic.gdx.graphics.g2d.BitmapFont
+import com.badlogic.gdx.graphics.OrthographicCamera
+import com.badlogic.gdx.Gdx
+
+
+
+
 
 
 class GameLogic(private val controller: Controller? = null) {
@@ -65,9 +72,11 @@ class GameLogic(private val controller: Controller? = null) {
     }
 
     fun render(sb: SpriteBatch) {
+
         for (h: Helicopter in helicopters) {
             h.render(sb)
         }
         controller?.render()
     }
+
 }
