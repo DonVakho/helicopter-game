@@ -16,7 +16,7 @@ class PlayState2(gsm: GameStateManager): BaseState(gsm) {
     private val logic: GameLogic = GameLogic(Controller(stage))
 
     init {
-        logic.helicopters.add(helicopter)
+        logic.addHeli(helicopter)
         createBackButton()
     }
 

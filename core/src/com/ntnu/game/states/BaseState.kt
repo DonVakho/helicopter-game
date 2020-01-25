@@ -17,7 +17,6 @@ abstract class BaseState(val gsm: GameStateManager) : IState {
 
     init {
         Gdx.input.inputProcessor = stage
-
     }
 
     protected fun createTxtButton(name: String, skin: Skin, y: Float): TextButton {
@@ -29,14 +28,18 @@ abstract class BaseState(val gsm: GameStateManager) : IState {
     }
 
     protected fun createBackButton(){
-        val backButton = createTxtButton("Back", skin, HelicopterGame.SCREEN_HEIGHT-100f)
-        backButton.addListener(object : ClickListener() {
+        val btnPosX = HelicopterGame.SCREEN_WIDTH - BACK_BTN_W
+        val btn = TextButton("Back", skin)
+        btn.setSize(BACK_BTN_W.toFloat(), BACK_BTN_H.toFloat())
+        btn.setPosition(btnPosX.toFloat(), (HelicopterGame.SCREEN_HEIGHT- BACK_BTN_H).toFloat())
+
+        btn.addListener(object : ClickListener() {
             override fun clicked(event: InputEvent?, x: Float, y: Float) {
                 gsm.set(MenuState(gsm))
                 gsm.pop()
             }
         })
-        stage.addActor(backButton)
+        stage.addActor(btn)
     }
 
     override fun render(sb: SpriteBatch) {
@@ -47,7 +50,9 @@ abstract class BaseState(val gsm: GameStateManager) : IState {
     companion object {
 
         private const val BTN_W = HelicopterGame.SCREEN_WIDTH / 2
+        private const val BACK_BTN_W = HelicopterGame.SCREEN_WIDTH / 5
 
         internal const val BTN_H = BTN_W / 3
+        internal const val BACK_BTN_H = BTN_W / 4
     }
 }

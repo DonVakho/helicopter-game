@@ -16,17 +16,14 @@ import com.ntnu.game.states.play.PlayState3
 class MenuState internal constructor(gsm: GameStateManager) : BaseState(gsm) {
 
     init {
-        val btnNum = 4
+        val btnNum = 3
         val boundsNum = btnNum + 4
         val singleBound = (HelicopterGame.SCREEN_HEIGHT - BTN_H * btnNum) / boundsNum
         val doubleBound = singleBound * 2
         val btnSpace = BTN_H + singleBound
 
-        val task4 = createTxtButton("Task 4", skin, doubleBound.toFloat())
-        task4.addListener(object : ClickListener() {
-            override fun clicked(event: InputEvent?, x: Float, y: Float) {}
-        })
-        val task3 = createTxtButton("Task 3", skin, task4.y + btnSpace)
+
+        val task3 = createTxtButton("Task 3", skin, doubleBound.toFloat())
         task3.addListener(object : ClickListener() {
             override fun clicked(event: InputEvent?, x: Float, y: Float) {
                 gsm.push(PlayState3(gsm))
@@ -48,7 +45,6 @@ class MenuState internal constructor(gsm: GameStateManager) : BaseState(gsm) {
         stage.addActor(task1)
         stage.addActor(task2)
         stage.addActor(task3)
-        stage.addActor(task4)
     }
 
     override fun render(sb: SpriteBatch) {

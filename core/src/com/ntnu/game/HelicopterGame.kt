@@ -34,7 +34,7 @@ class HelicopterGame : ApplicationAdapter() {
 
         const val SCREEN_WIDTH = 350
 
-        const val SCREEN_HEIGHT = 700
+        const val SCREEN_HEIGHT = 600
 
         const val HELICOPTER_WIDTH = 81
 
