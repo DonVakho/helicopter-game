@@ -14,7 +14,7 @@ class PlayState2: IState {
     private val logic: GameLogic = GameLogic(Controller())
 
     init {
-        logic.helicopters.add(helicopter)
+        logic.addHeli(helicopter)
     }
 
     override fun update(dt: Float) {
