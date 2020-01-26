@@ -2,15 +2,10 @@ package com.ntnu.game.states.play
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.math.Vector2
-import com.badlogic.gdx.scenes.scene2d.InputEvent
-import com.badlogic.gdx.scenes.scene2d.utils.ClickListener
 import com.ntnu.game.GameLogic
-import com.ntnu.game.HelicopterGame
 import com.ntnu.game.sprites.Helicopter
 import com.ntnu.game.states.BaseState
 import com.ntnu.game.states.GameStateManager
-import com.ntnu.game.states.IState
-import com.ntnu.game.states.MenuState
 
 class PlayState1(gsm: GameStateManager) : BaseState(gsm) {
 

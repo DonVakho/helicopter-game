@@ -7,7 +7,6 @@ import com.ntnu.game.sprites.Helicopter
 import com.ntnu.game.sprites.Controller
 import com.ntnu.game.states.BaseState
 import com.ntnu.game.states.GameStateManager
-import com.ntnu.game.states.IState
 
 class PlayState2(gsm: GameStateManager): BaseState(gsm) {
 

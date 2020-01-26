@@ -36,7 +36,6 @@ abstract class BaseState(val gsm: GameStateManager) : IState {
         btn.addListener(object : ClickListener() {
             override fun clicked(event: InputEvent?, x: Float, y: Float) {
                 gsm.set(MenuState(gsm))
-                gsm.pop()
             }
         })
         stage.addActor(btn)
