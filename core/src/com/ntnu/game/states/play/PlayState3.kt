@@ -14,7 +14,8 @@ class PlayState3(gsm: GameStateManager) : BaseState(gsm) {
 
     init {
         for (i in 1..5) {
-            logic.addHeli(Helicopter(Vector2(Random.nextFloat()*10f, Random.nextFloat() * 10f)))
+            logic.addHeli(Helicopter(Vector2(Random.nextFloat() * 10f + 5, Random.nextFloat() * 13f + 8),
+                    Vector2(Random.nextFloat() * 100, Random.nextFloat() * 300)))
         }
         createBackButton()
     }

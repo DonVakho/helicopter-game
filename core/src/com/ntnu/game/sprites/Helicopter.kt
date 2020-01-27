@@ -2,7 +2,7 @@ package com.ntnu.game.sprites
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.math.Vector2
-import com.ntnu.game.HelicopterGame
+import com.ntnu.game.states.BaseState
 
 class Helicopter(var movement: Vector2 = Vector2(0f, 0f),
                  var position: Vector2 = Vector2(0f, 0f)) : IHelicopter {
@@ -40,8 +40,8 @@ class Helicopter(var movement: Vector2 = Vector2(0f, 0f),
         sb.draw(helicopterSprite.getFrame(),
                 position.x,
                 position.y,
-                HelicopterGame.HELICOPTER_WIDTH.toFloat(),
-                HelicopterGame.HELICOPTER_HEIGHT)
+                BaseState.HELICOPTER_WIDTH,
+                BaseState.HELICOPTER_HEIGHT)
         sb.end()
     }
 }

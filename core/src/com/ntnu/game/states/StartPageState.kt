@@ -1,28 +1,17 @@
 package com.ntnu.game.states
 
-import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.scenes.scene2d.InputEvent
-import com.badlogic.gdx.scenes.scene2d.Stage
-import com.badlogic.gdx.scenes.scene2d.ui.Skin
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener
-import com.badlogic.gdx.utils.viewport.ScreenViewport
-import com.ntnu.game.HelicopterGame
 
-class StartPageState(gsm: GameStateManager) : IState {
-
-    private val stage: Stage = Stage(ScreenViewport())
+class StartPageState(gsm: GameStateManager) : BaseState(gsm) {
 
     init {
-        Gdx.input.inputProcessor = stage
-
-        val skin = Skin(Gdx.files.internal("gdxSkins/comic/skin/comic-ui.json"))
-
-        val btnW = HelicopterGame.SCREEN_WIDTH / 2
+        val btnW = SCREEN_WIDTH / 2
         val btnH = btnW / 3
-        val btnPosX = (HelicopterGame.SCREEN_WIDTH - btnW) / 2
-        val btnPosY = (HelicopterGame.SCREEN_HEIGHT - btnH) / 2
+        val btnPosX = (SCREEN_WIDTH - btnW) / 2
+        val btnPosY = (SCREEN_HEIGHT - btnH) / 2
 
         val playBtn = TextButton("Play", skin)
         playBtn.setSize(btnW.toFloat(), btnH.toFloat())

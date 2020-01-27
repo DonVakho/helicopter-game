@@ -30,16 +30,4 @@ class HelicopterGame : ApplicationAdapter() {
         batch?.dispose()
     }
 
-    companion object {
-
-        const val SCREEN_WIDTH = 350
-
-        const val SCREEN_HEIGHT = 600
-
-        const val HELICOPTER_WIDTH = 81
-
-        const val HELICOPTER_HEIGHT = 32.5f
-
-        const val TITLE = "Chop Chop"
-    }
 }

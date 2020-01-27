@@ -6,10 +6,12 @@ import com.ntnu.game.GameLogic
 import com.ntnu.game.sprites.Helicopter
 import com.ntnu.game.states.BaseState
 import com.ntnu.game.states.GameStateManager
+import kotlin.random.Random
 
 class PlayState1(gsm: GameStateManager) : BaseState(gsm) {
 
-    private val helicopter: Helicopter = Helicopter(Vector2(-2f, 3f), Vector2(5f, 5f))
+    private val helicopter: Helicopter = Helicopter(Vector2(Random.nextFloat() * 10f + 5, Random.nextFloat() * 13f + 8),
+            Vector2(5f, 5f))
 
     private val logic: GameLogic = GameLogic()
 
