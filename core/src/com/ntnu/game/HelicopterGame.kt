@@ -9,20 +9,18 @@ import com.ntnu.game.states.StartPageState
 
 class HelicopterGame : ApplicationAdapter() {
 
-    private val gsm: GameStateManager = GameStateManager()
-
     private var batch: SpriteBatch? = null
 
     override fun create() {
         batch = SpriteBatch()
         Gdx.gl.glClearColor(1f, 1f, 1f, 1f)
-        gsm.push(StartPageState(gsm))
+        GameStateManager.push(StartPageState())
     }
 
     override fun render() {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
-        gsm.update(Gdx.graphics.deltaTime)
-        gsm.render(batch!!)
+        GameStateManager.update(Gdx.graphics.deltaTime)
+        GameStateManager.render(batch!!)
     }
 
     override fun dispose() {

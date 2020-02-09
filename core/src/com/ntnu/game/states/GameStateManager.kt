@@ -4,9 +4,9 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch
 
 import java.util.Stack
 
-class GameStateManager {
+object GameStateManager {
 
-    private val states: Stack<IState> = Stack()
+    private val states: Stack<IState> by lazy { Stack<IState>() }
 
     fun push(state: IState) {
         states.push(state)

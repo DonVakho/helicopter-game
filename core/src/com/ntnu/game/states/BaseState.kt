@@ -9,7 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener
 import com.badlogic.gdx.utils.viewport.ScreenViewport
 
-abstract class BaseState(val gsm: GameStateManager) : IState {
+abstract class BaseState : IState {
 
     protected val stage: Stage = Stage(ScreenViewport())
     protected val skin = Skin(Gdx.files.internal("gdxSkins/comic/skin/comic-ui.json"))
@@ -34,7 +34,7 @@ abstract class BaseState(val gsm: GameStateManager) : IState {
 
         btn.addListener(object : ClickListener() {
             override fun clicked(event: InputEvent?, x: Float, y: Float) {
-                gsm.set(StartPageState(gsm))
+                GameStateManager.set(StartPageState())
             }
         })
         stage.addActor(btn)
@@ -56,9 +56,11 @@ abstract class BaseState(val gsm: GameStateManager) : IState {
         val HELICOPTER_HEIGHT = SCREEN_HEIGHT/19.4953846f
 
         private  val BTN_W = SCREEN_WIDTH / 2
+
         private  val BACK_BTN_W = SCREEN_WIDTH / 5
 
         internal  val BTN_H = BTN_W / 3
+
         internal  val BACK_BTN_H = BTN_W / 4
     }
 }

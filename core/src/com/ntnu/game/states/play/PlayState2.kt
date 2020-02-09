@@ -6,16 +6,15 @@ import com.ntnu.game.GameLogic
 import com.ntnu.game.sprites.Helicopter
 import com.ntnu.game.sprites.Controller
 import com.ntnu.game.states.BaseState
-import com.ntnu.game.states.GameStateManager
 
-class PlayState2(gsm: GameStateManager): BaseState(gsm) {
+class PlayState2: BaseState() {
 
     private val helicopter: Helicopter = Helicopter(Vector2(2f, 3f), Vector2(5f, 5f))
 
     private val logic: GameLogic = GameLogic(Controller(stage))
 
     init {
-        logic.addHeli(helicopter)
+        logic.addHelicopter(helicopter)
         createBackButton()
     }
 

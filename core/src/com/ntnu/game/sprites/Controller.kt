@@ -30,10 +30,10 @@ class Controller(private val stage: Stage) {
 
         val touchPad = Touchpad(10f, touchPadStyle)
         touchPad.setBounds(
-                (BaseState.SCREEN_WIDTH - calcControlerSize()) / 2,
+                (BaseState.SCREEN_WIDTH - calcControllerSize()) / 2,
                 20f,
-                calcControlerSize(),
-                calcControlerSize())
+                calcControllerSize(),
+                calcControllerSize())
         touchPad.addListener(object : DragListener() {
             override fun drag(event: InputEvent?, x: Float, y: Float, pointer: Int) {
                 super.drag(event, x, y, pointer)
@@ -42,7 +42,7 @@ class Controller(private val stage: Stage) {
             }
         })
 
-        stage.addActor(touchPad)
+         stage.addActor(touchPad)
     }
 
     fun render() {
@@ -59,7 +59,7 @@ class Controller(private val stage: Stage) {
         return if (knobSize >= 30) knobSize else 30f
     }
 
-    private fun calcControlerSize(): Float {
+    private fun calcControllerSize(): Float {
         val controllerSize = BaseState.SCREEN_WIDTH / 3.5f
         return if (controllerSize >= 100) controllerSize else 100f
     }

@@ -22,7 +22,7 @@ class GameLogic(private val controller: Controller? = null) {
     private val labels = ArrayList<BitmapFont>()
 
 
-    fun addHeli(h: Helicopter) {
+    fun addHelicopter(h: Helicopter) {
         helicopters.add(h)
         val font = BitmapFont()
         font.color = Color.BLACK
@@ -93,5 +93,4 @@ class GameLogic(private val controller: Controller? = null) {
         }
         controller?.render()
     }
-
 }

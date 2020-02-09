@@ -6,7 +6,7 @@ import com.ntnu.game.states.play.PlayState1
 import com.ntnu.game.states.play.PlayState2
 import com.ntnu.game.states.play.PlayState3
 
-class MenuState internal constructor(gsm: GameStateManager) : BaseState(gsm) {
+class MenuState internal constructor() : BaseState() {
 
     init {
         val btnNum = 3
@@ -19,19 +19,19 @@ class MenuState internal constructor(gsm: GameStateManager) : BaseState(gsm) {
         val task3 = createTxtButton("Task 3", skin, doubleBound.toFloat() + singleBound)
         task3.addListener(object : ClickListener() {
             override fun clicked(event: InputEvent?, x: Float, y: Float) {
-                gsm.set(PlayState3(gsm))
+                GameStateManager.set(PlayState3())
             }
         })
         val task2 = createTxtButton("Task 2", skin, task3.y + btnSpace)
         task2.addListener(object : ClickListener() {
             override fun clicked(event: InputEvent?, x: Float, y: Float) {
-                gsm.set(PlayState2(gsm))
+                GameStateManager.set(PlayState2())
             }
         })
         val task1 = createTxtButton("Task 1", skin, task2.y + btnSpace)
         task1.addListener(object : ClickListener() {
             override fun clicked(event: InputEvent?, x: Float, y: Float) {
-                gsm.set(PlayState1(gsm))
+                GameStateManager.set(PlayState1())
             }
         })
 

@@ -5,7 +5,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener
 
-class StartPageState(gsm: GameStateManager) : BaseState(gsm) {
+class StartPageState : BaseState() {
 
     init {
         val btnW = SCREEN_WIDTH / 2
@@ -18,7 +18,7 @@ class StartPageState(gsm: GameStateManager) : BaseState(gsm) {
         playBtn.setPosition(btnPosX.toFloat(), btnPosY.toFloat())
         playBtn.addListener(object : ClickListener() {
             override fun clicked(event: InputEvent?, x: Float, y: Float) {
-                gsm.set(MenuState(gsm))
+                GameStateManager.set(MenuState())
             }
         })
 
